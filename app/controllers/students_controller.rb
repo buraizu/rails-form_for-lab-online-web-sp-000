@@ -13,7 +13,18 @@ class StudentsController < ApplicationController
   def show
     @student = Student.find(params[:id])
   end
-  
+
+  def edit
+    @student = Student.find(params[:id])
+  end
+
+  def update
+    @student = Student.find(params[:id])
+    @student.update(student_params)
+    @student.save
+    redirect_to @student
+  end
+
   private
 
     def student_params
@@ -21,12 +32,3 @@ class StudentsController < ApplicationController
     end
 
 end
-
-
-{"utf8"=>"✓",
-"authenticity_token"=>
- "VAO8jAncf/4B9Izl+mS4y11QT0hQUWzvEKy4E18MtVxD607LI+bL5bNFcDaZPvTzm9giKg4VIjmGu9UoRmQyMw==",
-"student"=>{"first_name"=>"B", "last_name"=>"BBB"},
-"commit"=>"Create Student",
-"controller"=>"students",
-"action"=>"create"}
